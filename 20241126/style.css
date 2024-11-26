@@ -1,0 +1,90 @@
+@import url("https://meyerweb.com/eric/tools/css/reset/reset.css");
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container */
+form {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px 30px;
+    max-width: 500px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* Header Styling */
+h1 {
+    font-size: 1.8em;
+    color: #444;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form Elements */
+ul {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+input[type="text"] {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 8px;
+    flex: 1;
+}
+
+input[type="text"]:focus {
+    border-color: #0078d7;
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 120, 215, 0.4);
+}
+
+/* Submit Button */
+input[type="submit"] {
+    background-color: #0078d7;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+}
+
+input[type="submit"]:hover {
+    background-color: #005bb5;
+}
+
+/* Error Message */
+.error {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.9em;
+}

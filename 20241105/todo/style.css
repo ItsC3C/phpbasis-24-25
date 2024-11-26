@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+main {
+    height: 100vh;
+    display: grid;
+    grid-template: 2fr 1fr;
+    background-color: white;
+    color: white;
+}
+
+section {
+    background-color: black;
+    font-family: sans-serif;
+    grid-column-start: 3;
+    padding: 10px;
+    border-radius: 20px;
+    column-gap: 10px;
+}
