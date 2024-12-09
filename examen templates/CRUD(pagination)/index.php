@@ -39,8 +39,13 @@
                     // Include config file
                     require_once "config.php";
 
+                    // Pagination setup (new code)
+                    $rows_per_page = 20;
+                    $page = isset($_GET['page-nr']) ? (int)$_GET['page-nr'] : 1;
+                    $start = ($page - 1) * $rows_per_page;
+
                     // Attempt select query execution
-                    $sql = "SELECT * FROM employees";
+                    $sql = "SELECT * FROM employees LIMIT $start, $rows_per_page";
                     if ($result = mysqli_query($link, $sql)) {
                         if (mysqli_num_rows($result) > 0) {
                             echo '<table class="table table-bordered table-striped">';
@@ -78,12 +83,43 @@
                         echo "Oops! Something went wrong. Please try again later.";
                     }
 
+                    // Calculate total pages (new code)
+                    $total_rows = mysqli_num_rows(mysqli_query($link, "SELECT * FROM employees"));
+                    $pages = ceil($total_rows / $rows_per_page);
+
+
                     // Close connection
                     mysqli_close($link);
                     ?>
                 </div>
+                <ul class="pagination">
+                    <li class="page-link">
+                        <?php
+                        if ($page > 1) {
+                            echo "<a href='?page-nr=" . ($page - 1) . "'>&lt;</a>";
+                        } else {
+                            echo "<span>&lt;</span>";
+                        }
+                        ?>
+                    </li>
+                    <?php
+                    for ($counter = 1; $counter <= $pages; $counter++) {
+                        echo "<li class='page-link'><a href='?page-nr=" . $counter . "'>" . $counter . "</a></li>";
+                    }
+                    ?>
+                    <li class="page-link">
+                        <?php
+                        if ($page < $pages) {
+                            echo "<a href='?page-nr=" . ($page + 1) . "'>&gt;</a>";
+                        } else {
+                            echo "<span>&gt;</span>";
+                        }
+                        ?>
+                    </li>
+                </ul>
             </div>
         </div>
+    </div>
     </div>
 </body>
 

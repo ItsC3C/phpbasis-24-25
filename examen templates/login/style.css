@@ -1,0 +1,10 @@
+#error_msg {
+    width: 50%;
+    margin: 5px auto;
+    height: 30px;
+    border: 1px solid #FF0000;
+    background: red;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+}
